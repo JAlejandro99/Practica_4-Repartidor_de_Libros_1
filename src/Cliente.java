@@ -90,6 +90,7 @@ public class Cliente {
                             public void run(){
                                 try {
                                     mensaje = br1.readLine();
+                                    System.out.println(mensaje);
                                     if(mensaje.equals("vacia")){
                                         int resp = JOptionPane.showConfirmDialog(null, "El sistema ha prestado todos los libros, ¿deseas seguir en el sistema?");
                                         if(resp==1){
@@ -109,8 +110,8 @@ public class Cliente {
                                         pw.flush();
                                         pw.println(v2.r1.getHora2());
                                         pw.flush();
-                                    }else if(mensaje.equals("sincronizar2")){
-                                        System.out.println("sincronizar2");
+                                    }else if(mensaje.equals("sincronizardos")){
+                                        System.out.println("sincronizardos");
                                         String ti = br1.readLine();
                                         //Actualizar hora
                                         System.out.println("ti = ");
@@ -178,11 +179,13 @@ public class Cliente {
                         });
                         v2.reiniciar.addActionListener(new ActionListener(){
                             public void actionPerformed(ActionEvent e){
+                                recibir.stop();
                                 pw.println("reiniciar");
                                 pw.flush();
                                 pw.println(v2.r1.getHora2());
                                 pw.flush();
                                 v2.infoLibros.setText("");
+                                arrancarHilo();
                             }
                         });
                         v2.salir.addActionListener(new ActionListener(){

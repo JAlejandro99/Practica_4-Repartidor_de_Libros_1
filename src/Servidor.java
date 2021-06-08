@@ -70,7 +70,7 @@ public class Servidor implements Runnable{
                 rl.unlock();
             }
         });
-        sincronizar();
+        //sincronizar();
     }
     
     public void esperar(String servidor1, int puerto1){
@@ -110,7 +110,7 @@ public class Servidor implements Runnable{
                     pw.flush();
                     pw.println(v1.r1.getHora2());
                     pw.flush();
-                }else if(msj.equals("sincronizar2")){
+                }else if(msj.equals("sincronizardos")){
                     String ti = br.readLine();
                     //Actualizar hora
                     System.out.println(ti);
@@ -283,7 +283,7 @@ public class Servidor implements Runnable{
                                         informarSincronizacion.remove(numeroCliente);
                                         informarSincronizacion.put(numeroCliente,"0");
                                         System.out.println("Enviando sincronizar 2.1");
-                                        pw.println("sincronizar2");
+                                        pw.println("sincronizardos");
                                         pw.flush();
                                         System.out.println("Enviando sincronizar 2.2");
                                         pw.println("nada");
@@ -391,7 +391,7 @@ public class Servidor implements Runnable{
                                             if(informarSincronizacion.get(numeroCliente).equals("2")){
                                                 informarSincronizacion.remove(numeroCliente);
                                                 informarSincronizacion.put(numeroCliente,"0");
-                                                pw.println("sincronizar2");
+                                                pw.println("sincronizardos");
                                                 pw.flush();
                                                 pw.println(Ti.get(numeroCliente));
                                                 pw.flush();
